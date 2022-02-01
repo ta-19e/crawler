@@ -27,6 +27,6 @@ jobs:
         uses: swinton/screenshot-website@v1.x
         with:
           source: https://err.ee
-          destination: /tmp/err.png
+          destination: err.png
           full-page: true
 
