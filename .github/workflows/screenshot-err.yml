@@ -6,11 +6,13 @@ name: Screenshot ERR
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    paths: '.github/workflows/screenshot-err.yml'
     branches: [ main ]
+    paths:
+      - '.github/workflows/screenshot-err.yml'
   pull_request:
-    paths: '.github/workflows/screenshot-err.yml'
     branches: [ main ]
+    paths: 
+      - '.github/workflows/screenshot-err.yml'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -26,12 +28,13 @@ jobs:
     steps:
 
       - name: Screenshot Website
-        uses: swinton/screenshot-website@v1.x 
+        uses: swinton/screenshot-website@v1.x
         with:
           source: https://err.ee
           destination: err.png
           full-page: false
-        
+          
+          
       - name: List files
         run: ls -lah && tree
 
