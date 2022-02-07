@@ -8,13 +8,13 @@ on:
   push:
     branches: [ main ]
     paths:
-      - '.github/workflows/screenshot-err.yml'
+      - 'screenshot-neti.yml'
+      
   pull_request:
     branches: [ main ]
-    paths: 
-      - '.github/workflows/screenshot-err.yml'
-
-  # Allows you to run this workflow manually from the Actions tab
+    paths:
+      - 'screenshot-neti.yml'
+  
   workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
