@@ -6,10 +6,10 @@ name: Screenshot ERR
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    paths:
-      - 'screenshot-err.yml'
+    paths: '.github/workflows/screenshot-err.yml'
     branches: [ main ]
   pull_request:
+    paths: '.github/workflows/screenshot-err.yml'
     branches: [ main ]
 
   # Allows you to run this workflow manually from the Actions tab
@@ -31,6 +31,9 @@ jobs:
           source: https://err.ee
           destination: err.png
           full-page: false
+        
+      - name: List files
+        run: ls -lah && tree
 
       - name: Method to save artifact
         uses: actions/checkout@v2
@@ -41,4 +44,4 @@ jobs:
          name: my-artifact
     
       - name: Display structure of downloaded files
-        run: ls -R
+        run: ls -R 
