@@ -33,7 +33,16 @@ jobs:
           destination: err.png
           full-page: false
           
-          
       - name: List files
         run: ls -lah && tree
+        
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v2
+        with:
+          name: screenshot-err
+          path: err.png
+          retention-days: default
 
+      - name: Display structure of downloaded files
+        run: ls -R
+        working-directory: pictures
