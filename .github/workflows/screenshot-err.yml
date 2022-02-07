@@ -48,6 +48,9 @@ jobs:
         
       - name: Commit to pictures
         run: |
+          git config --global user.email "err-screenshot-bot@example.com"
+          git config --global user.name "Err screenshot bot"
+          
           mkdir -p pictures
           mv err.png/err.png "pictures/err.png"
           git add pictures/*
