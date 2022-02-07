@@ -6,7 +6,7 @@ name: Screenshot ERR page
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ ingeliza-patch-1-1 ]
+    branches: [ main ]
     paths: '.github/workflows/screenshot-err.yml'
   pull_request:
     branches: [ main ]
@@ -25,12 +25,20 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
 
+      - uses: actions/checkout@v2
+      
       - name: Screenshot Website
         uses: swinton/screenshot-website@v1.x
         with:
           source: https://err.ee
           destination: err.png
           full-page: false
+          
+      - name: download err artifact from artifact
+        uses: actions@download-artifact@v2
+        with:
+          name: err
+          path: err.png
           
           
       - name: List files
