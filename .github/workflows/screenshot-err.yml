@@ -45,4 +45,12 @@ jobs:
           
       - name: List files
         run: ls -lah && tree
+        
+      - name: Commit to pictures
+        run: |
+          mkdir -p pictures
+          mv err.png/err.png "pictures/err.png"
+          git add pictures/*
+          git commit -m 'add current screenshot to pictures'
+          git push
 
