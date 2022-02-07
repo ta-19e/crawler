@@ -1,12 +1,11 @@
-# This is a basic workflow to help you get started with Actions
-
 name: Screenshot ERR
 
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
+    paths:
+      - 'screenshot-err.yml'
   pull_request:
     branches: [ main ]
 
@@ -29,6 +28,7 @@ jobs:
           source: https://err.ee
           destination: err.png
           full-page: false
+
           
           
       - name: List files
