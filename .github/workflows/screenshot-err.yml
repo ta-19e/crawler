@@ -7,10 +7,10 @@ on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
     branches: [ main ]
-    paths: 'screenshot-err.yml'
+    paths: '.github/workflows/screenshot-err.yml'
   pull_request:
     branches: [ main ]
-    paths: 'screenshot-err.yml'
+    paths: '.github/workflows/screenshot-err.yml'
     # Kevin Klemm
 
   # Allows you to run this workflow manually from the Actions tab
