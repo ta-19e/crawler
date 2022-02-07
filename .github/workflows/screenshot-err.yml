@@ -29,4 +29,8 @@ jobs:
           source: https://err.ee
           destination: err.png
           full-page: false
+          
+          
+      - name: List files
+        run: ls -lah && tree
 
