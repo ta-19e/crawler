@@ -35,5 +35,5 @@ jobs:
           
       - name: List files
         run: ls -lah && tree
-        working-directory: ./pictures
+        working-directory: pictures
 
