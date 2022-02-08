@@ -27,4 +27,4 @@ jobs:
       - name: Create a gallery
         run: |
             npm install -g thumbsup
-            thumbsup --input ./photos --output ./gallery
+            thumbsup --input ./pictures --output ./gallery
