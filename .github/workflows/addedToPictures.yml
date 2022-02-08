@@ -24,7 +24,8 @@ jobs:
       - uses: actions/checkout@v2
 
       # Runs a single command using the runners shell
+      - name: Install tools
+        run: npm install -g thumbsup
+      
       - name: Create a gallery
-        run: |
-            npm install -g thumbsup
-            thumbsup --input ./pictures --output ./gallery
+        run: thumbsup --input ./pictures --output ./gallery
