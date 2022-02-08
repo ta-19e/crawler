@@ -47,6 +47,7 @@ jobs:
         run: ls -lah && tree
         
       - name: Commit to pictures
+        if: endsWith(github.ref, 'main') == true
         run: |
           git config --global user.email "err-screenshot-bot@example.com"
           git config --global user.name "Err screenshot bot"
