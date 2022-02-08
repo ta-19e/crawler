@@ -13,6 +13,9 @@ on:
     branches: [ main ]
     paths: 
       - '.github/workflows/screenshot-err.yml'
+      
+  schedule: 
+    - cron: '*/60 * * * *'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
