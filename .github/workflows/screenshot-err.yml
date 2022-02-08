@@ -62,7 +62,7 @@ jobs:
           git config --global user.name "Err screenshot bot"
           
           mkdir -p pictures
-          mv err.png/err.png "pictures/err-{$TIME}.png"
+          mv err.png/err.png "pictures/err-${TIME}.png"
           git add pictures/*
           git commit -m 'add current screenshot to pictures'
           git push
