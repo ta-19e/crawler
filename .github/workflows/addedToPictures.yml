@@ -25,7 +25,10 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Install tools
-        run: npm install -g thumbsup
+        run: |
+          sudo apt install exiftool
+          sudo apt-get install graphicsmagick
+          npm install -g thumbsup
       
       - name: Create a gallery
         run: thumbsup --input ./pictures --output ./gallery
