@@ -27,9 +27,13 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       
+      - name: install exitfool
+        run: sudo apt-get install -y exiftool
+      
+      
       - name: install thumbs-up
         run: npm install -g thumbsup
 
       # Runs a single command using the runners shell
-      - name: Run a one-line script
+      - name: generate gallery with thumbsup
         run: thumbsup --input ./pictures --output ./website
