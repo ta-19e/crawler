@@ -39,3 +39,10 @@ jobs:
       # Runs a single command using the runners shell
       - name: generate gallery with thumbsup
         run: thumbsup --input ./pictures --output ./website
+
+      - name: Save gallery to artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: gallery
+          retention-days: 5
+          path: website/
