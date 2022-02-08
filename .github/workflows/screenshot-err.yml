@@ -1,17 +1,19 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Screenshot ERR page
+name: Screenshot ERR
 
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
     branches: [ main ]
-    paths: '.github/workflows/screenshot-err.yml'
+    paths:
+      - '.github/workflows/screenshot-err.yml'
   pull_request:
     branches: [ main ]
-    paths: '.github/workflows/screenshot-err.yml'
-  
+    paths: 
+      - '.github/workflows/screenshot-err.yml'
+
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -26,7 +28,7 @@ jobs:
     steps:
 
       - uses: actions/checkout@v2
-      
+
       - name: Screenshot Website
         uses: swinton/screenshot-website@v1.x
         with:
@@ -34,13 +36,23 @@ jobs:
           destination: err.png
           full-page: false
           
-      - name: download err artifact from artifact
-        uses: actions@download-artifact@v2
-        with:
-          name: err
-          path: err.png
           
+      - name: download err screenshot from artifact
+        uses: actions/download-artifact@v2
+        with:
+         name: err
+         path: err.png
           
       - name: List files
         run: ls -lah && tree
-        working-directory: pictures
+        
+      - name: Commit to pictures
+        run: |
+          git config --global user.email "err-screenshot-bot@example.com"
+          git config --global user.name "Err screenshot bot"
+          
+          mkdir -p pictures
+          mv err.png/err.png "pictures/err.png"
+          git add pictures/*
+          git commit -m 'add current screenshot to pictures'
+          git push
