@@ -55,5 +55,5 @@ jobs:
           mv err.png/err.png "pictures/err.png"
           git add pictures/*
           git commit -m 'add current screenshot to pictures'
-          git push origin ${GITHUB_REF##*/}
+          git push
 
